@@ -1,11 +1,15 @@
 import os
+from dotenv import load_dotenv
 from openai import AzureOpenAI
 
 endpoint = "https://semiai-openai.openai.azure.com/"
 model_name = "gpt-4.1"
 deployment = "gpt-4.1"
 
-subscription_key = "BrCSq8oXpideyMkrm1TA8gzb5ptHzUCGgI9BX2eeMkIDt8u54ZEwJQQJ99BDACNns7RXJ3w3AAABACOGXpGL"
+# Create an OpenAI client for Azure
+load_dotenv()
+subscription_key = os.getenv("AZURE_OPENAI_API_KEY")
+
 api_version = "2024-12-01-preview"
 
 client = AzureOpenAI(
